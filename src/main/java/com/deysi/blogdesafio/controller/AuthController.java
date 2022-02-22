@@ -1,5 +1,6 @@
 package com.deysi.blogdesafio.controller;
 
+import com.deysi.blogdesafio.dto.LoginRequest;
 import com.deysi.blogdesafio.dto.RegisterRequest;
 import com.deysi.blogdesafio.service.AuthService;
 
@@ -23,5 +24,10 @@ public class AuthController {
     public ResponseEntity<String> signup(@RequestBody RegisterRequest registerRequest){
         authService.signup(registerRequest);
         return new ResponseEntity<>("ok!!!",HttpStatus.OK);
+    }
+
+    @PostMapping("/login")
+    public String login(@RequestBody LoginRequest loginRequest){
+        return authService.login(loginRequest);
     }
 }
